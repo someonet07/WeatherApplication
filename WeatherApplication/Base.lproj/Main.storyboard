@@ -13,7 +13,7 @@
         <!--Home Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeController" customModule="WeatherApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="HomeController" customModule="WeatherApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,16 +51,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LZL-IC-wcN">
-                                                        <rect key="frame" x="0.0" y="33" width="119" height="30"/>
+                                                        <rect key="frame" x="11.5" y="33" width="96" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="Xs7-Ne-RQG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="Hgs-T6-A0y"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мин 15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxC-Tu-z21">
-                                                                <rect key="frame" x="59.5" y="6.5" width="59.5" height="17"/>
+                                                                <rect key="frame" x="48" y="6.5" width="48" height="17"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                                                         <rect key="frame" x="0.0" y="66" width="119" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunDay" translatesAutoresizingMaskIntoConstraints="NO" id="r3e-fF-yKo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="30"/>
+                                                                <rect key="frame" x="0.0" y="7.5" width="59.5" height="15"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:23 AM " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJr-Vb-YGQ">
                                                                 <rect key="frame" x="59.5" y="6.5" width="59.5" height="17"/>
@@ -130,13 +130,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-7v-d5e">
-                                                        <rect key="frame" x="0.0" y="34.5" width="110" height="31"/>
+                                                        <rect key="frame" x="6.5" y="34.5" width="97" height="31"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="iOH-O7-0AB">
-                                                                <rect key="frame" x="0.0" y="0.0" width="54.5" height="31"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="31"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Макс 15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf3-Tn-j9F">
-                                                                <rect key="frame" x="55.5" y="7" width="54.5" height="17"/>
+                                                                <rect key="frame" x="49" y="7" width="48" height="17"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -147,7 +147,7 @@
                                                         <rect key="frame" x="0.0" y="68.5" width="110" height="31.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moonDay" translatesAutoresizingMaskIntoConstraints="NO" id="ERx-Ia-mzg">
-                                                                <rect key="frame" x="0.0" y="1" width="55" height="30"/>
+                                                                <rect key="frame" x="0.0" y="8.5" width="55" height="15"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:13 PM" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDs-iS-Y4e">
                                                                 <rect key="frame" x="55" y="7.5" width="55" height="17"/>
@@ -172,6 +172,9 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Туман" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNu-zB-5hQ">
                                 <rect key="frame" x="117" y="288" width="141" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dtK-60-AxT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -179,7 +182,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14693453036998816" green="0.59357948796524329" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uNu-zB-5hQ" secondAttribute="bottom" constant="349" id="Hkg-CD-8H6"/>
                             <constraint firstItem="uNu-zB-5hQ" firstAttribute="top" secondItem="YbM-7b-Hzd" secondAttribute="bottom" constant="10" id="K7C-be-PR8"/>
                             <constraint firstItem="uNu-zB-5hQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="MuS-qC-tJD"/>
                             <constraint firstItem="YbM-7b-Hzd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="dmR-8G-SvI"/>
@@ -209,8 +211,8 @@
     </scenes>
     <resources>
         <image name="03d" width="50" height="50"/>
-        <image name="moonDay" width="30" height="30"/>
-        <image name="sunDay" width="30" height="30"/>
-        <image name="temp" width="96" height="96"/>
+        <image name="moonDay" width="15" height="15"/>
+        <image name="sunDay" width="15" height="15"/>
+        <image name="temp" width="48" height="48"/>
     </resources>
 </document>
