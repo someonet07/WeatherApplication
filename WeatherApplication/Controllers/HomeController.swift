@@ -10,6 +10,7 @@ import UIKit
 
 class HomeController: UIViewController {
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -70,9 +71,9 @@ class HomeController: UIViewController {
         if (myTime! >= 0) && (myTime! < 6) {
             view.backgroundColor = #colorLiteral(red: 0.091043904, green: 0.1818169142, blue: 0.3799571701, alpha: 1)
         } else if (myTime! > 6) && (myTime! < 20) {
-            view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+            backgroundImage.image = #imageLiteral(resourceName: "day_background")
         } else if (myTime! >= 20) && (myTime! <= 23) {
-            view.backgroundColor = #colorLiteral(red: 0.151430261, green: 0.3095761044, blue: 0.6613459709, alpha: 1)
+            backgroundImage.image = #imageLiteral(resourceName: "night_background")
         }
     }
 }

@@ -198,6 +198,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="Dwp-Lj-ZG0" id="N99-aJ-Orv"/>
                         <outlet property="dateLabel" destination="ZjV-9f-jUZ" id="Q39-6Z-KOE"/>
                         <outlet property="descriptionLabel" destination="uNu-zB-5hQ" id="nM8-Oz-nJi"/>
                         <outlet property="humadityLabel" destination="ceY-ad-jwz" id="F4L-Uf-sin"/>
