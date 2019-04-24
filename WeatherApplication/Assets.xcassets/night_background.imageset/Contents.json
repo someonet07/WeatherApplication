@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "nightMode.jpg",
+      "filename" : "night_background.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "nightMode-1.jpg",
+      "filename" : "night_background-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "nightMode-2.jpg",
+      "filename" : "night_background-2.png",
       "scale" : "3x"
     }
   ],
