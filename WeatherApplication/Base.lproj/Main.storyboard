@@ -182,18 +182,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbi-ab-ERM" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="423" width="414" height="473"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14693453036998816" green="0.59357948796524329" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wbi-ab-ERM" secondAttribute="trailing" id="0fP-fA-8ex"/>
                             <constraint firstItem="Dwp-Lj-ZG0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5p0-0r-ykF"/>
                             <constraint firstItem="uNu-zB-5hQ" firstAttribute="top" secondItem="YbM-7b-Hzd" secondAttribute="bottom" constant="10" id="K7C-be-PR8"/>
                             <constraint firstItem="uNu-zB-5hQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="MuS-qC-tJD"/>
+                            <constraint firstItem="Wbi-ab-ERM" firstAttribute="top" secondItem="uNu-zB-5hQ" secondAttribute="bottom" constant="81" id="Y9F-Qp-ayW"/>
                             <constraint firstItem="Dwp-Lj-ZG0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="brX-vU-znk"/>
                             <constraint firstItem="YbM-7b-Hzd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="dmR-8G-SvI"/>
                             <constraint firstItem="uNu-zB-5hQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hSP-b0-ahm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dwp-Lj-ZG0" secondAttribute="bottom" constant="-34" id="jYM-lk-aN0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dwp-Lj-ZG0" secondAttribute="trailing" id="tGl-Rv-DKK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wbi-ab-ERM" secondAttribute="bottom" constant="-34" id="vqQ-qB-Com"/>
                             <constraint firstItem="YbM-7b-Hzd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wsM-lN-e7y"/>
+                            <constraint firstItem="Wbi-ab-ERM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yga-0b-6f9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -209,6 +217,7 @@
                         <outlet property="sunriseLabel" destination="GDs-iS-Y4e" id="PnV-91-SeZ"/>
                         <outlet property="sunsetLabel" destination="BJr-Vb-YGQ" id="e6F-QC-GBb"/>
                         <outlet property="tempLabel" destination="PhX-zM-fMF" id="2lH-0b-eIR"/>
+                        <outlet property="weatherChartView" destination="Wbi-ab-ERM" id="60K-Iz-hO3"/>
                         <outlet property="windLabel" destination="lb9-Dl-MZY" id="oqA-Ts-Pfk"/>
                     </connections>
                 </viewController>

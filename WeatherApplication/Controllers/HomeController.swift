@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Charts
 
 class HomeController: UIViewController {
     
+    
+    @IBOutlet weak var weatherChartView: LineChartView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -48,6 +51,7 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchChartData()
     }
     
     fileprivate func fetchWeather() {
@@ -60,6 +64,7 @@ class HomeController: UIViewController {
         return .lightContent
     }
     
+    //MARK: - Dynamic background
     fileprivate func getBackGround() {
         
         let date = Date()
@@ -76,5 +81,39 @@ class HomeController: UIViewController {
             backgroundImage.image = #imageLiteral(resourceName: "night_background")
         }
     }
+    //MARK:- Chart
+    //TODO:- correct time and get data from json
+    fileprivate func fetchChartData() {
+        let xAxis = weatherChartView.xAxis
+        xAxis.labelPosition = .top
+        xAxis.labelFont = .systemFont(ofSize: 12, weight: .light)
+        xAxis.centerAxisLabelsEnabled = true
+        xAxis.labelTextColor = .white
+        xAxis.entries = [9,12,3,6,9,0]
+        
+        let value = (0..<6).map { (i) -> ChartDataEntry in
+            let val = Double(arc4random_uniform(UInt32(20)) + 8)
+            return ChartDataEntry(x: Double(i), y: val, icon: #imageLiteral(resourceName: "01d"))
+        }
+        
+        let leftAxis = weatherChartView.leftAxis
+        leftAxis.labelTextColor = .white
+        leftAxis.axisMaximum = 40
+        leftAxis.axisMinimum = 0
+        leftAxis.drawGridLinesEnabled = true
+        leftAxis.granularityEnabled = true
+        
+        let rightAxis = weatherChartView.rightAxis
+        rightAxis.labelTextColor = .white
+        rightAxis.axisMaximum = 40
+        rightAxis.axisMinimum = 0
+        rightAxis.granularityEnabled = false
+        
+        let set1 = LineChartDataSet(entries: value, label: "Hello Line")
+        set1.mode = .cubicBezier
+        
+        let data = LineChartData(dataSet: set1)
+        data.setValueFont(.systemFont(ofSize: 0))
+        weatherChartView.data = data
+    }
 }
-

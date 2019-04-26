@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class APIService {
-    
+    // daily weather
     private let apiKeyWeather =  "http://api.openweathermap.org/data/2.5/weather?id=501175&lang=ru&units=metric&appid=a71f8f08804055adde2321a93f3544eb"
-    
+    // next 7 day
     private let apiKeyForecast = "http://api.openweathermap.org/data/2.5/forecast?id=501175&appid=a71f8f08804055adde2321a93f3544eb"
     
     static let shared = APIService()

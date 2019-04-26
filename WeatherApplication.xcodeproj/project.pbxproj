@@ -69,6 +69,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9861C4992273216500D4D1B8 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
 		98754312226EE6E500D23110 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +130,7 @@
 		98DE286C226DC70D00D8338D /* WeatherApplication */ = {
 			isa = PBXGroup;
 			children = (
+				9861C4992273216500D4D1B8 /* Charts */,
 				98754318226EF63800D23110 /* Helpers */,
 				98754313226EE6F900D23110 /* Extension */,
 				98754312226EE6E500D23110 /* Network */,
@@ -263,6 +271,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WeatherApplication/Pods-WeatherApplication-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -270,6 +279,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -191,7 +191,6 @@ extension WelcomePageController: UIPageViewControllerDataSource, UIPageViewContr
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewVC = viewController as? WelcomeViewController else { return nil }
         if let index = welcomeViewController.firstIndex(of: viewVC) {
-            
             UIView.animate(withDuration: 1, animations: {
                 self.imageView.image = UIImage(named: self.arrayImage[index])
             })
