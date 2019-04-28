@@ -26,7 +26,9 @@ class HomeController: UIViewController {
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var weatherModel: WeatherModel! {
+    private var weatherForecast = [WeatherForecast]()
+    
+    private var weatherModel: WeatherModel! {
         didSet {
             nameLabel.text = weatherModel.name
             dateLabel.text = weatherModel.day
@@ -53,10 +55,13 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         fetchChartData()
     }
-    
+    //MARK:- Json data
     fileprivate func fetchWeather() {
         APIService.shared.downloadData { (weatherModel) in
             self.weatherModel = weatherModel
+        }
+        APIService.shared.downloadForecast { (weatherForecast) in
+            self.weatherForecast.append(weatherForecast)
         }
     }
     
@@ -66,7 +71,6 @@ class HomeController: UIViewController {
     
     //MARK: - Dynamic background
     fileprivate func getBackGround() {
-        
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("HH")
@@ -74,7 +78,7 @@ class HomeController: UIViewController {
         let myTime = Int(hour)
         
         if (myTime! >= 0) && (myTime! < 6) {
-            view.backgroundColor = #colorLiteral(red: 0.091043904, green: 0.1818169142, blue: 0.3799571701, alpha: 1)
+            backgroundImage.image = #imageLiteral(resourceName: "early_background")
         } else if (myTime! > 6) && (myTime! < 20) {
             backgroundImage.image = #imageLiteral(resourceName: "day_background")
         } else if (myTime! >= 20) && (myTime! <= 23) {
@@ -89,7 +93,6 @@ class HomeController: UIViewController {
         xAxis.labelFont = .systemFont(ofSize: 12, weight: .light)
         xAxis.centerAxisLabelsEnabled = true
         xAxis.labelTextColor = .white
-        xAxis.entries = [9,12,3,6,9,0]
         
         let value = (0..<6).map { (i) -> ChartDataEntry in
             let val = Double(arc4random_uniform(UInt32(20)) + 8)
@@ -109,7 +112,7 @@ class HomeController: UIViewController {
         rightAxis.axisMinimum = 0
         rightAxis.granularityEnabled = false
         
-        let set1 = LineChartDataSet(entries: value, label: "Hello Line")
+        let set1 = LineChartDataSet(entries: value, label: "Hello Weather")
         set1.mode = .cubicBezier
         
         let data = LineChartData(dataSet: set1)
