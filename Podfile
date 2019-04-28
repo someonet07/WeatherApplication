@@ -8,5 +8,6 @@ target 'WeatherApplication' do
   # Pods for WeatherApplication
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'Charts'
 
 end

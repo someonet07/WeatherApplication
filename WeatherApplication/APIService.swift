@@ -11,12 +11,24 @@ import Alamofire
 import SwiftyJSON
 
 class APIService {
-    
+    // daily weather
     private let apiKeyWeather =  "http://api.openweathermap.org/data/2.5/weather?id=501175&lang=ru&units=metric&appid=a71f8f08804055adde2321a93f3544eb"
-    
-    private let apiKeyForecast = "http://api.openweathermap.org/data/2.5/forecast?id=501175&appid=a71f8f08804055adde2321a93f3544eb"
+    // next 7 day
+    private let apiKeyForecast = "http://api.openweathermap.org/data/2.5/forecast?id=501175&units=metric&appid=a71f8f08804055adde2321a93f3544eb"
     
     static let shared = APIService()
+    
+    func downloadForecast(completionHandler: @escaping (WeatherForecast) -> ()) {
+        Alamofire.request(apiKeyForecast).responseJSON { (response) in
+            let result = response.result
+            let json = JSON(result.value ?? "")
+            for item in json["list"].arrayValue {
+                let items = item.dictionaryObject
+                let forecast = WeatherForecast(weatherDictionary: items!)
+                completionHandler(forecast)
+            }
+        }
+    }
     
     func downloadData(completionHandler: @escaping (WeatherModel) -> ()) {
         Alamofire.request(apiKeyWeather).responseJSON { (response) in

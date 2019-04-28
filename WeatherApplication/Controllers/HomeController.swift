@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Charts
 
 class HomeController: UIViewController {
     
+    
+    @IBOutlet weak var weatherChartView: LineChartView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,7 +26,9 @@ class HomeController: UIViewController {
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var weatherModel: WeatherModel! {
+    private var weatherForecast = [WeatherForecast]()
+    
+    private var weatherModel: WeatherModel! {
         didSet {
             nameLabel.text = weatherModel.name
             dateLabel.text = weatherModel.day
@@ -48,11 +53,15 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchChartData()
     }
-    
+    //MARK:- Json data
     fileprivate func fetchWeather() {
         APIService.shared.downloadData { (weatherModel) in
             self.weatherModel = weatherModel
+        }
+        APIService.shared.downloadForecast { (weatherForecast) in
+            self.weatherForecast.append(weatherForecast)
         }
     }
     
@@ -60,8 +69,8 @@ class HomeController: UIViewController {
         return .lightContent
     }
     
+    //MARK: - Dynamic background
     fileprivate func getBackGround() {
-        
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("HH")
@@ -69,12 +78,45 @@ class HomeController: UIViewController {
         let myTime = Int(hour)
         
         if (myTime! >= 0) && (myTime! < 6) {
-            view.backgroundColor = #colorLiteral(red: 0.091043904, green: 0.1818169142, blue: 0.3799571701, alpha: 1)
+            backgroundImage.image = #imageLiteral(resourceName: "early_background")
         } else if (myTime! > 6) && (myTime! < 20) {
             backgroundImage.image = #imageLiteral(resourceName: "day_background")
         } else if (myTime! >= 20) && (myTime! <= 23) {
             backgroundImage.image = #imageLiteral(resourceName: "night_background")
         }
     }
+    //MARK:- Chart
+    //TODO:- correct time and get data from json
+    fileprivate func fetchChartData() {
+        let xAxis = weatherChartView.xAxis
+        xAxis.labelPosition = .top
+        xAxis.labelFont = .systemFont(ofSize: 12, weight: .light)
+        xAxis.centerAxisLabelsEnabled = true
+        xAxis.labelTextColor = .white
+        
+        let value = (0..<6).map { (i) -> ChartDataEntry in
+            let val = Double(arc4random_uniform(UInt32(20)) + 8)
+            return ChartDataEntry(x: Double(i), y: val, icon: #imageLiteral(resourceName: "01d"))
+        }
+        
+        let leftAxis = weatherChartView.leftAxis
+        leftAxis.labelTextColor = .white
+        leftAxis.axisMaximum = 40
+        leftAxis.axisMinimum = 0
+        leftAxis.drawGridLinesEnabled = true
+        leftAxis.granularityEnabled = true
+        
+        let rightAxis = weatherChartView.rightAxis
+        rightAxis.labelTextColor = .white
+        rightAxis.axisMaximum = 40
+        rightAxis.axisMinimum = 0
+        rightAxis.granularityEnabled = false
+        
+        let set1 = LineChartDataSet(entries: value, label: "Hello Weather")
+        set1.mode = .cubicBezier
+        
+        let data = LineChartData(dataSet: set1)
+        data.setValueFont(.systemFont(ofSize: 0))
+        weatherChartView.data = data
+    }
 }
-
