@@ -13,13 +13,11 @@ struct WeatherForecast {
     var temperature: Int?
     
     init (weatherDictionary: Dictionary<String, Any>) {
-        
         if let main = weatherDictionary["main"] as? [String : Any] {
             if let newTemp = main["temp"] as? Double {
                 temperature = Int(newTemp)
             }
         }
-        
         if let newDay = weatherDictionary["dt_txt"] as? String {
             day = newDay
         }

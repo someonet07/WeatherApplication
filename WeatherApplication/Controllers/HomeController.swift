@@ -60,8 +60,9 @@ class HomeController: UIViewController {
         APIService.shared.downloadData { (weatherModel) in
             self.weatherModel = weatherModel
         }
-        APIService.shared.downloadForecast { (weatherForecast) in
-            self.weatherForecast.append(weatherForecast)
+        APIService.shared.downloadForecast { (forecastModel) in
+            self.weatherForecast.append(forecastModel)
+            print(forecastModel.day ?? 2)
         }
     }
     
@@ -112,7 +113,7 @@ class HomeController: UIViewController {
         rightAxis.axisMinimum = 0
         rightAxis.granularityEnabled = false
         
-        let set1 = LineChartDataSet(entries: value, label: "Hello Weather")
+        let set1 = LineChartDataSet(entries: value, label: "Rostov-na-Donu")
         set1.mode = .cubicBezier
         
         let data = LineChartData(dataSet: set1)
